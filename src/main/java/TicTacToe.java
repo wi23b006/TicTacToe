@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class TicTacToe {
     private Player player1;
     private Player player2;
@@ -46,7 +48,16 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) {
-        TicTacToe game = new TicTacToe();
-        game.start();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            TicTacToe game = new TicTacToe();
+            game.start();
+            System.out.print("Do you want to play again? (yes/no): ");
+            String answer = scanner.next();
+            if (!answer.equalsIgnoreCase("yes")) {
+                break;
+            }
+        }
+        scanner.close();
     }
 }
